@@ -2,7 +2,7 @@
 
 </p>
 
-### A simple app where admins can create interviews by selecting participants, interview start time and end time
+### A simple app where admins can create interviews by selecting participants, interview start time and end time  
 
 
 # FRONTEND (React)
@@ -42,7 +42,7 @@ client
     
 ```
 
-## Have a look on Backend **[Node.js, express used](https://eff.org)**.
+## Have a look on Backend **[Node.js, express used](https://github.com/rhythm98/interviewbit-Backend)**.
 
 ## Available Scripts
 
