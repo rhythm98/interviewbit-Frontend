@@ -44,6 +44,29 @@ client
 
 ## Have a look on Backend **[Node.js, express used](https://github.com/rhythm98/interviewbit-Backend)**.
 
+
+
+### Basic Requirements
+1. An interview creation page where the admin can create an interview by selecting participants, start time and end time. Backend should throw error with proper error message if: 
+    - Any of the participants is not available during the scheduled time (i.e, has another interview scheduled)
+    - No of participants is less than 2
+2. An interviews list page where admin can see all the upcoming interviews.
+3. An interview edit page where admin can edit the created interview with the same validations as on the creation page.  
+
+**Note:** No need to add a page to create Users/Participants. Create them directly in the database
+
+### Good to haves
+Send emails to participants on interview creation.
+Create your app’s frontend as a SPA
+Option to upload resume
+
+### If possible you can deploy your app using aws/heroku or any other service and send us a link to it.
+
+- All Basic functionality working.
+- Database schema
+- Code quality
+
+
 ## Available Scripts
 
 In the project directory, you can run:

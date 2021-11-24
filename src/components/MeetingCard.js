@@ -2,45 +2,53 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 const MeetingCard = (props) => {
   const {
-    timeCreated,
-    startTime,
-    endTime,
+    _id,
+    date,
+    startTime, //2012-04-23T18:25:43.511Z
+    endTime, //2012-04-23T18:25:43.511Z
     interviewers,
     candidates,
     title,
     description,
-    timezone,
   } = props.meeting //destructuring
+  
+
+  const formatDate = (date) => {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' }
+    return new Date(date).toLocaleDateString('en-IN', options)
+  }
+  
+
   return (
     <div className='item'>
       <div className='content'>
-        <Link
-          to={{
-            // pathname: `/meetings/${id}`,
-            state: { meeting: props.meeting },
-          }}
-        >
-          <div className='header'>{timeCreated}</div>
-          <div>{startTime}</div>
-          <div>{endTime}</div>
-          <div>{candidates}</div>
-          <div>{interviewers}</div>
-          <div>{title}</div>
-          <div>{description}</div>
-          <div>{timezone}</div>
-        </Link>
+        <div className='header'>{_id}</div>
+        <div>{formatDate(date)}</div>
+        <div>{startTime}</div>
+        <div>{endTime}</div>
+        <div>{candidates}</div>
+        <div>{interviewers}</div>
+        <div>{title}</div>
+        <div>{description}</div>
       </div>
-      <i
-        className='trash alternate outline icon'
-        style={{ color: 'red', marginTop: '7px', marginLeft: '10px' }}
-        // onClick={() => props.clickHandler(id)}
-      ></i>
-      {/* <Link to={{ pathname: `/edit/${id}`, state: { meeting: props.meeting } }}> */}
+      <div>
+        <Link
+          to={{ pathname: `/edit/${_id}`, state: { meeting: props.meeting } }}
+
+          // to={{ pathname: `/edit/${id}`, state: { meeting: props.meeting } }}
+        >
+          <i
+            className='edit alternate outline icon'
+            style={{ color: 'blue', marginTop: '7px', marginLeft: '10px' }}
+            // onClick={() => props.editHandler(_id)}
+          ></i>
+        </Link>
         <i
-          className='edit alternate outline icon'
-          style={{ color: 'blue', marginTop: '7px' }}
+          className='trash alternate outline icon'
+          style={{ color: 'red', marginTop: '7px' }}
+          onClick={() => props.deleteHandler(_id)}
         ></i>
-      {/* </Link> */}
+      </div>
     </div>
   )
 }

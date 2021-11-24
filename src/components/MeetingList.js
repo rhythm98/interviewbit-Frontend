@@ -2,52 +2,34 @@ import React from 'react'
 // import { Link } from 'react-router-dom'
 import MeetingCard from './MeetingCard'
 
+
+// export default function MeetingList(props) {}
 const MeetingList = (props) => {
-  console.log(props)
+  console.log("key ",props.key)
 
-  const deleteMeetingHandler = (id) => {
-    props.getMeetingId(id)
-  }
-
+  // const deleteHandler = (id) => {
+  //   props.getMeetingIdForRemove(id)
+  // }
+  // const editHandler = (id) => {
+  //   props.getMeetingIdForUpdate(id)
+  // }
   const renderMeetings = props.meetings.map((meeting) => {
-    return <MeetingCard
-      meeting={meeting}
-      clickHandler={deleteMeetingHandler}
-      key={meeting.id}/>
+    return (
+      <MeetingCard
+        meeting={meeting}
+        deleteHandler={props.getMeetingIdForRemove}
+        editHandler={props.getMeetingIdForUpdate}
+        key={meeting._id}
+      />
+    )
   })
 
-  // const meetings = [
-  //   {
-  //     id: '1',
-  //     name: 'Rhythm',
-  //     email: 'rhyagr@gmail.com',
-  //   },
-  //   {
-  //     id: '2',
-  //     name: 'Ajit',
-  //     email: 'ASR@gmail.com',
-  //   },
-  // ]
-  // const renderMeetings = meetings.map((meeting) => {
-  //   return (
-  //     <MeetingCard
-  //       meeting={meeting}
-  //       clickHandler={deleteMeetingHandler}
-  //       key={meeting.id}
-  //     />
-  //   )
-  // })
-
   return (
-    <div class='main'>
-      <h2>
-        Meetings
-        {/* <Link to="/schedule">
-          <button className='ui button blue right'>Add Meeting</button>
-        </Link> */}
-      </h2>
-
-      <div className="ui search"><div className="ui input search"></div></div>
+    <div className='main'>
+      <h2>Meetings</h2>
+      {/* <div className='ui search'>
+        <div className='ui input search'>Search Meeting</div>
+      </div> */}
       <div className='ui celled list'>{renderMeetings}</div>
     </div>
   )
